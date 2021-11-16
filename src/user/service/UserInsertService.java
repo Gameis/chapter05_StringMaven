@@ -2,12 +2,16 @@ package user.service;
 
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
 public class UserInsertService implements UserService {
 
+	@Autowired
 	private UserDTO userDTO;
+	@Autowired
 	private UserDAO userDAO;
 	
 	public void setUserDTO(UserDTO userDTO) {

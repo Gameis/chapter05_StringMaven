@@ -1,6 +1,7 @@
 package user.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,5 +19,7 @@ public interface UserDAO {
 	public void update(UserDTO userDTO);
 
 	public void delete(String id);
+
+	public List<UserDTO> search(Map<String, Object> map);
 
 }

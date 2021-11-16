@@ -24,4 +24,8 @@
 		delete usertable where id = #{id}
 	</delete>
 	
+	<select id="search" parameterType="java.util.Map" resultType="user">
+		select * from usertable where ${key} like '%${value}%'
+	</select>
+	
 </mapper>

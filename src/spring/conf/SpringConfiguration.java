@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -16,9 +18,12 @@ import user.dao.UserDAOMybatis;
 import user.main.HelloSpring;
 import user.service.UserDeleteService;
 import user.service.UserInsertService;
+import user.service.UserSearchService;
 import user.service.UserSelectService;
 import user.service.UserUpdateService;
 
+@Configuration
+@PropertySource("spring/db.properties")
 public class SpringConfiguration {
 	
 	@Value("${jdbc.driver}")
@@ -84,7 +89,7 @@ public class SpringConfiguration {
     }
 	
     @Bean
-    public UserInsertService userInsertServce() {
+    public UserInsertService userInsertService() {
     	return new UserInsertService();
     }
     
@@ -104,6 +109,11 @@ public class SpringConfiguration {
     }
     
     @Bean
+    public UserSearchService userSearchService() {
+    	return new UserSearchService();
+    }
+    
+    @Bean
     public UserDTO userDTO() {
     	return new UserDTO();
     }
@@ -112,4 +122,5 @@ public class SpringConfiguration {
     public UserDAO userDAOMybatis() {
     	return new UserDAOMybatis();
     }
+    
 }

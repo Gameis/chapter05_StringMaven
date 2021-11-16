@@ -2,13 +2,15 @@ package user.service;
 
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import lombok.Setter;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
 public class UserUpdateService implements UserService {
 
-	@Setter
+	@Autowired
 	UserDAO userDAO;
 	
 	@Override
